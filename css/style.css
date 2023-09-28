@@ -1,0 +1,561 @@
+/*Esta es la hoja de estilos de nuestra página web*/
+/*Proyecto realizado por Iván Expósito y Tomás Mendizabal*/
+
+html{scroll-behavior: smooth;} /*Hacemos que el desplazamiento por la pagina sea fluido*/
+
+.link_recuadros{ /*Estos links pertenecen a las 6 pestañas de la primera página*/
+    outline:none;
+    text-decoration:none;
+    display:grid;} /*Al hacer click en cualquier parte del recuadro, se activa el link*/
+
+a:link {color: black;} /*El color de los links es negro para camuflarse con el color fuente*/
+
+a:visited {color: black;} /*De forma estetica, cuando hemos visitado un link, este mantiene su color original*/
+
+a:active {color: #ffffff;}/*Establece el color cuando el enlace está en estado activo (presionado o seleccionado). */
+
+/*Para el cuerpo, añado una imagen de fondo la cual recubre toda la pantalla amoldandose al tamaño y sin repetirse*/
+body{background-image: url(wooden_back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+/*Estilo de encabezados generales*/
+
+/*h1 abarca el encabezado con el nombre de la página. La fuente es distinta al resto de la página.*/
+h1 {font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    padding: 3%;
+    font-size: 2.8vw;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgb(6, 194, 244); /*Añado una sombra azul cian al texto, debido a que en el logo original aparece el color*/
+    color:rgb(252, 169, 14);}
+
+/*h3 corresponde al encabezado quese situa en el footer*/
+h3{margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 20px; 
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 225, 255), 0 0 1em orange, 0 0 0.2em rgb(0, 183, 255);}
+
+/*Style de las paginas en general*/
+
+/*Las paginas y en general la mayoria de elementos de la pagina tienen parametros en comun
+por ello, agrupamos todos en uno para determinados valores.*/
+.RestaurantePrinc, .pagina2, .pagina3, .pagina4{
+    display: grid; /*grid se usa para realizar particiones en un espacio de la pagina*/
+    grid-gap: 10px;
+    margin-bottom: 5vh;
+    height: 88vh; /*La altura de pagina la hemos definido con hv que es el espacio relativo de la pantalla del dispotivo*/
+    text-align: center;}
+
+.RestaurantePrinc, .pagina3{
+    /*template-colums define las columnas y el tamaño de las mismas. En este caso la Columna 1 ocupa 1/3 del ancho y la 2 ocupa 2/3*/
+    grid-template-columns: 1fr 2fr;}
+    
+.pagina2, .pagina4{
+    /*Para seguir el formato indicado en la documentación, las paginas 2 y 3 son al contrario de la 3.*/
+    grid-template-columns: 2fr 1fr;}
+    
+.pagina4{
+    margin-bottom: 80px;
+    height: 89vh;} /*la pagina 4 es un poco más alta que las demas para hacer hueco al footer y que quede equilibrado*/
+
+/*Estilo de las columnas de cada pagina*/
+/*las columnas corresponden a el cuadrado que agrupa otras divisiones en su interior, es la segunda capa más amplia, por
+debajo de las paginas. Una pagina está formada por columnas. El primer numero es la columna y el segundo la pagina en la que está.*/
+.Columna1{
+    border: 5px ridge; /*Para la vista de ordenador y tablet añado un borde plata.*/
+    display: flex;  /*En esta columa uso flex para ajustar el tamaño de los elementos al tamaño de la pantalla de forma precisa*/
+    flex-direction: column;
+    border-color: silver;}
+
+.Columna2{ /*Columna con los 6 cuadrados principales, cada uno de ellos con un link.*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 44vh);
+    grid-gap: 5px;}
+
+.Columna1_2, .Columna2_3, .Columna1_4{
+    border-radius: 3px;
+    margin-top: 1vh;
+    border: 2px solid rgb(252, 169, 14);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:scroll;} /*En las columnas donde el tamaño de fuente abarque más de lo permitido, se permitira hacer scroll para leerlo.*/
+
+/*::-webkit-scrollbar lo hemos usado para esconder las barras de scroll y hacerlo más estetico.*/
+.Columna1_2::-webkit-scrollbar, .Columna2_3::-webkit-scrollbar, .Columna1_4::-webkit-scrollbar{
+    display: none;}
+
+/*Para algunas columnas hemos añadido otras columnas en su interior para distribuir mejor el texto. Este es el menú.*/
+.Columna1_2{
+    display: grid;
+    background-image: url(Paper_texture.jpg);
+    grid-template-columns: repeat(3, 1fr);}
+
+.Columna2_3{
+    border: 2px solid #318aac;
+    outline-color: rgba(33, 178, 197, 0.4);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);} /*Para hacer el fondo uso linear-gradient y los colores*/
+
+.Columna1_4{
+    display: flex; 
+    flex-direction: column;
+    height: 83vh;
+    background-image: url(Paper_texture.jpg);}
+
+.Columna2_2 h1,.Columna1_3 h1, .Columna2_4 h1, .Columna1_4 h3{ /*Estilo de texto de los diferentes encabezados que hemos usado.*/
+    font-family:'Berkshire Swash', Impact; /*La fuente principal de la página es Berkshire Swash, disponible en los archivos.*/
+    font-size: 35px;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    color:white;
+    text-shadow: 2px 2px 7px rgb(6, 194, 244);}
+
+.Columna1_4 h3{
+    font-size: 1.5em;
+    margin-top: 3%;
+    padding: 0;
+    color: black;
+    text-shadow: 1px 1px 4px rgb(252, 169, 14);}
+
+/*Estilo de los contenedores que contienen los cuadrados*/
+/*Los contenedores albergan en su interior los cuadrados con las fotos. Esto nos facilita trabajar con el espacio.*/
+.Contenedor2, .Contenedor3, .Contenedor4, .Contenedor_inferior4{
+    display: grid;
+    text-align: center;
+    grid-gap: 5px;
+    margin-top: 5px;
+    border-radius: 8px;}
+
+/*Según la galeria de imagenes, hemos usado diferentes disposiciones para las galerias.*/
+.Contenedor2, .Contenedor3{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 41vh);}
+
+.Contenedor4{
+    grid-template-rows: repeat(3, 25.5vh);}
+
+/*Este contenedor tiene en su interior dos columas de TEXTO en la pagina 4.*/
+.Contenedor_inferior4{
+    flex: 2;
+    grid-template-columns: 40% 60%;}
+    
+/*Estilo de los cuadrados (donde van las imagenes)*/
+.Cuadrados1{
+    background-color: rgb(252, 169, 14);
+    border-radius: 2px;
+    place-items: center;}
+
+.Cuadrados1:hover{ /*Hover permite realizar efectos al pasar por encima del elemento el ratón.*/
+    color: rgba(255, 255, 255, 1) ;
+    box-shadow: 0 0px 16px white;
+    transition: all 0.2s ease; /*Este es el efecto elegido en los cuadrados pricipales*/
+    transform: scale(0.97);} /*Al pasar el ratón por ellos, parece que estamos empujandoles.*/
+
+.Cuadrados2, .Cuadrados3, .Cuadrados4{
+    color: #fff;
+    background: rgb(252, 169, 14);
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    outline: 1px solid;   /* Borde de contorno con un grosor de 1px */
+    outline-color: rgb(221, 158, 41);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);}   /* Transición de animación durante 1 segundo, utilizando una función de curva de Bezier para suavizar */
+
+.Cuadrados2:hover,.Cuadrados3:hover, .Cuadrados4:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.719), 0 0 20px rgba(141, 161, 168, 0.4);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 80px;
+    text-shadow: 1px 1px 6px #fff;
+    transform: scale(0.97);}
+
+.Cuadrados3{
+    background: #318aac;
+    outline-color: rgba(49, 138, 172, 0.4);}
+
+.Cuadrados1 p{ /*Definimos el tamaño de los tetxos que aparecen en los cuadrados.*/
+    font-size: 2em;
+    font-family:'Berkshire Swash', Impact;}
+
+.Cuadrados2 p, .Cuadrados3 p, .Cuadrados4 p{
+    position: absolute; /*la posicion absoluta permite posicionar el texto al frente de las imagenes.*/
+    font-size: 2vw;
+    margin-left: 15px;
+    font-family:'Berkshire Swash', Impact;
+    color: whitesmoke;
+    text-shadow: 1px 1px 3px rgb(252, 80, 0);}
+
+/*Estilo de los recuadros que contienen los textos grandes*/
+.Cuadro_texto1_2, .Cuadro_texto2_2, .Cuadro_texto3_2{
+    margin-top: 8%;
+    height: 82vh;}
+
+/*Formato de los textos (lo hemos usado como titulos) de los recuadros de texto.*/
+.Cuadro_texto1_2 p, .Cuadro_texto2_2 p, .Cuadro_texto3_2 p, .Cuadro_texto1_3 h2{
+    font-family: 'Berkshire Swash', Impact;
+    font-size: 2vw;
+    margin: 0;
+    margin-left: 5%;
+    padding: 10px;}
+
+/*li se trata de listas de elementos, usadas para el menu y parte inferior de la pagina 4.*/
+.Cuadro_texto1_2 li, .Cuadro_texto2_2 li, .Cuadro_texto3_2 li{
+    font-size: 2vh;
+    margin-left: 5%;  /*A la mayoria de textos les añadimos margenes para que no esten tan pegados a los bordes.*/
+    margin-right: 3%;}
+
+.Cuadro_texto1_3 h2{
+    text-align: center;
+    font-size: 3vw;
+    margin-top: 4%;
+    color: white;
+    text-shadow: 1px 1px 4px rgb(252, 169, 14);}
+
+.Cuadro_texto1_3 p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+    padding: 2%;
+    color: white;
+    text-shadow: 0px 0px 2px #fff;}
+    
+.Cuadro_texto1_4{
+    flex: 1;}
+
+.Cuadro_texto1_4 p, .Contenedor_inferior4 li{  
+    margin-left: 2%;   
+    margin-right: 3%;   
+    font-size: 1.7em;
+    color: black;}
+
+/*Estilo de fotos y videos*/
+.LogoMain, .LinkVideo{ /*Elementos situados en la columna1. Logo y link de la pagina web original.*/
+    display: flex;
+    flex: 1; /*Situar elemento en la primera parte del recuadro reservado para flex*/
+    width: 100%;} /*El elemento ocupa el total del ancho de la columna.*/
+
+.videoMain{flex: 2;} /*El video está situado justo debajo de la imagen del logo, mediante flex*/
+
+.Icons{width: 60%;} /*Los iconos son los situados en los recuadros del inicio. No ocupan el total del recuadro.*/
+
+/*Son todas las imagenes situadas en los cuadrados de los contenedores.*/
+.ImagenPag2, .ImagenPag3, .ImagenPag4 {
+    object-fit: cover; /*Cover hace que la imagen ocupe el total del recuadro en el que está sin deformarse.*/
+    position:unset; /* Restablece la propiedad de posición al valor predeterminado según la herencia. En nuestro caso, la posiciona detras del texto. */
+    width: 100%; /*La imagen ocupa el total del ancho del recuadro*/
+    height: 100%;} /*La imagen ocupa el total del alto del recuadro*/
+
+/*Son las imagenes que se observan en el footer.*/
+.LogoChiquito{
+    width: 100%;
+    text-align: center;}
+
+.LogoChiquito:hover{ /*Efecto que hace que los logos se amplien de forma fluida.*/
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: scale(1.5);}
+
+/*Estilo del footer*/
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;}
+
+.Footer_grid_general{
+    display: grid;
+    margin-left: 10px;
+    margin-right: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 30px);}
+
+.Footer_grid_left{
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px ridge rgb(218, 189, 44);}
+
+.Footer_grid_left:hover{
+    background-size: cover;
+    background-color: rgb(52, 8, 79);
+    transition: opacity 0.3s ease-in-out;}
+
+.Footer_grid_left p, .Footer_grid_right p{
+    color:rgb(218, 189, 44);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 19px;
+    margin:0;}
+
+.Footer_grid_middle{
+    display: grid;
+    position:relative;
+    grid-template-columns: repeat(3, 25px);
+    gap: 10px;
+    justify-content: center;}
+
+.Footer_grid_right{
+    display: grid;
+    grid-template-columns: 170px 30px;
+    grid-template-rows: repeat(1, 25px);
+    justify-content: center;}
+
+.EnlaceFooter::before {
+    display: grid;
+    content: "Visitanos!";
+    position:fixed;
+    margin: 0px 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black; 
+    padding: 5px 10px;
+    border-radius: 5px; 
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;}
+
+.EnlaceFooter:hover::before {  /* Mostrar el mensaje al pasar el cursor sobre el enlace */
+    visibility: visible;
+    opacity: 1;}
+
+/*Aqui empieza el breakpoint para tablet*/
+@media only screen and (max-width: 768px) {
+    body{
+        background-image: url(wooden_back.jpg);
+        background-repeat: repeat;
+        background-size: fill;}
+
+    h1{font-size: 50px;}
+    
+    /*Estilos para pagina en tablet*/
+    .RestaurantePrinc{
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-gap: 10px;
+        height: 80vh;
+        margin-bottom: 5vh;
+        text-align: center;}
+
+    .pagina2, .pagina3, .pagina4{
+        display: grid;
+        grid-template-columns: 100%;
+        margin-top: 30px;}
+
+    .pagina2, .pagina3, .pagina4{
+        grid-template-rows: auto;
+        height: 120vh;
+        margin-bottom: 23vh;}
+
+    .pagina4{margin-bottom: 55vh;}
+    
+    /*Estilo de las columnas*/
+    .Columna1{
+        flex-direction: column;}
+    
+    .Columna2{
+        grid-template-columns: repeat(3, 20vw);
+        grid-template-rows: repeat(2, 40vh);}
+    
+    .Columna1_2, .Columna2_3, .Columna1_4{
+        grid-row: 2;
+        height: 70vh;
+        border-radius: 8px;
+        overflow: scroll;}
+
+    .Columna2_2, .Columna1_3, .Columna2_4{grid-row: 1;}
+
+    .Columna2_2 h1,.Columna1_3 h1, .Columna2_4 h1{
+        font-size: 40px;}
+
+    .Columna2_3 h2{
+        margin: 2%;
+        font-size: 4vw;}
+
+    .Columna2_3 p{
+        color: white;
+        margin: 0;
+        text-shadow: 1px 1px 3px rgb(3, 3, 53);
+        font-size: 1.4em;}
+        
+    .Columna1_4{
+        display: flex;
+        flex-direction: column;
+        border-radius: 3px;
+        height: 75vh;}
+
+    .Columna1_4 h3{font-size: 1.5em;}
+
+    .Contenedor_inferior4{
+        flex: 2;
+        display: grid;
+        flex-direction: row;}
+
+    /*Estilo contenedores*/
+    .Contenedor2, .Contenedor3{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 30vh);}
+
+    .Contenedor4{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: repeat(3, 25vh);}
+
+    /*Estilo cuadrados*/
+    .Cuadrados1{
+        background-color: rgb(252, 169, 14);
+        border-radius: 2px;}
+    
+    .Cuadrados1:hover{
+        color: rgba(255, 255, 255, 1) ;
+        box-shadow: 0 0px 16px white;
+        transition: all 0.2s ease;}
+    
+    .Cuadrados1 p{
+        font-size: 3vw;
+        font-family:'Berkshire Swash', Impact;}
+    
+    .Cuadrados2 p, .Cuadrados3 p, .Cuadrados4 p{
+        font-size: 30px;}
+
+    /*Estilo cuadros de texto*/
+    .Cuadro_texto1_2 p, .Cuadro_texto2_2 p, .Cuadro_texto3_2 p{
+        font-family: 'Berkshire Swash', Impact;
+        font-size: 1.2em;
+        margin: 0;
+        margin-left: 5%;
+        padding: 10px;}
+    
+    .Cuadro_texto1_2 li, .Cuadro_texto2_2 li, .Cuadro_texto3_2 li{
+        font-size: 1.8vh;
+        margin-right: 2%;
+        margin-left: 4%;}
+
+    .Cuadro_texto1_4 p{     
+        font-size: 1.3em;}
+
+    .Contenedor_inferior4 li{
+        font-size: 1.2em;}
+
+    /*Footer style*/
+    .Footer_grid_left p, .Footer_grid_right p{
+        font-size: 18px;}
+    }
+
+    /*Ahora hacemos el breackpoint para móvil*/
+    @media only screen and (max-width: 600px) {
+
+    h1{font-size: 60px;}
+
+    .RestaurantePrinc{
+        grid-template-columns:100%;
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+        height: 160vh;}
+
+    .pagina2, .pagina3, .pagina4{
+        display: grid;
+        grid-template-columns: 100%;}
+
+    .pagina2, .pagina3{
+        grid-template-rows: auto;
+        height: 160vh;
+        margin-bottom: 23vh;}
+
+    .pagina4{
+        height: 190vh;
+        margin-bottom: 30vh;}
+    
+    /*Estilo de las columnas*/
+    .Columna1{
+        border: none;
+        flex-direction: column;}
+    
+    .Columna2{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);}
+
+    .Columna1_2, .Columna2_3, .Columna1_4{
+        grid-row: 2;
+        height: 110vh;
+        border-radius: 8px;
+        overflow: scroll;}
+
+    .Columna2_2 h1,.Columna1_3 h1, .Columna2_4 h1{
+        font-size: 40px;}
+
+    .Columna2_3 h2{
+        margin: 2%;
+        font-size: 4vw;}
+
+    .Columna2_3 p{
+        margin: 0;
+        font-size: 1.6em;}
+        
+    .Columna1_4{
+        display: flex;
+        flex-direction: column;
+        height: 120vh;}
+
+    .Columna1_4 li{
+        font-size: 1.4em;}
+
+    .Columna1_4 h3{
+        padding: 2%;
+        font-size: 1.7em;}
+
+    .Contenedor_inferior4{
+        flex: 2;
+        display: flex;
+        flex-direction: column;}
+
+    /*Estilo contenedores*/
+    .Contenedor2, .Contenedor3{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 30vh);}
+
+    .Contenedor4{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: repeat(3, 25vh);}
+
+    /*Estilo cuadrados*/
+    .Cuadrados1{
+        background-color: rgb(252, 169, 14);
+        border-radius: 2px;}
+    
+    .Cuadrados1 p{
+        font-size: 4vw;
+        font-family:'Berkshire Swash', Impact;}
+    
+    .Cuadrados2 p, .Cuadrados3 p, .Cuadrados4 p{
+        font-size: 30px;}
+
+    /*Estilo cuadros de texto*/
+    .Cuadro_texto1_2 p, .Cuadro_texto2_2 p, .Cuadro_texto3_2 p{
+        font-size: 1.4em;}
+    
+    .Cuadro_texto1_2 li, .Cuadro_texto2_2 li, .Cuadro_texto3_2 li{
+        font-size: 1.7vh;}
+    
+    .Cuadro_texto1_3 h2{font-size: 2em;}
+
+    .Cuadro_texto1_4 {flex: 1;}
+
+    .Cuadro_texto1_4 p{     
+        font-size: 1.5em;}
+
+    .Contenedor_inferior4 li{
+        font-size: 1.2em;}
+
+    .videoMain{border: 5px groove black;}
+
+    /*Footer style*/
+    .Footer_grid_left p, .Footer_grid_right p{
+        font-size: 18px;}
+    
+    .Footer_grid_right{
+        grid-template-columns: 145px 27px;
+        grid-template-rows: repeat(1, 20px);}
+}
